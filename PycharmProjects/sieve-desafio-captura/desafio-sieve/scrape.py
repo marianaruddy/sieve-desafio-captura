@@ -18,7 +18,7 @@ for link in soup.find_all('a'):
             linkPagProd = requests.get(link['href']).text
             soupPagProd = BeautifulSoup(linkPagProd,'lxml')
             # print(soupPagProd.prettify())
-            for nomeProd in soupPagProd.find_all('div',class_=""):
+            for nomeProd in soupPagProd.find_all('a',attrs={"name": "Abstract"}):
                 print(nomeProd['content'])
 
 
